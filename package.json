@@ -1,12 +1,19 @@
 {
   "name": "rasa-node-action-server",
   "version": "0.1.1-0",
-  "description": "",
+  "description": "NodeJS alternative to Rasa SDK Action Server",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "keywords": [],
-  "author": "",
-  "license": "MIT"
+  "keywords": [
+    "rasa",
+    "server",
+    "action server"
+  ],
+  "author": "lykos94",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
 }
