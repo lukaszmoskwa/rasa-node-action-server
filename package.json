@@ -3,6 +3,10 @@
   "version": "0.1.2",
   "description": "NodeJS alternative to Rasa SDK Action Server",
   "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Lykos94/rasa-node-action-server.git"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
