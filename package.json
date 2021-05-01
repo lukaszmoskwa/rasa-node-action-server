@@ -9,7 +9,10 @@
   "keywords": [
     "rasa",
     "server",
-    "action server"
+    "action server",
+    "chatbot js",
+    "nodejs-rasa-sdk",
+    "rasa-sdk-js"
   ],
   "author": "lykos94",
   "license": "MIT",

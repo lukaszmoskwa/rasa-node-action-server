@@ -2,8 +2,8 @@ class RasaAction {
   next_action = "";
   sender_id = "";
   tracker = {
-    sender_id: "test",
-    slots: { session_started_metadata: [Object] },
+    sender_id: "",
+    slots: { session_started_metadata: [] },
     latest_message: {
       intent: {},
       entities: [],
@@ -23,25 +23,17 @@ class RasaAction {
     latest_action_name: "",
   };
   domain = {
-    config: { store_entities_as_slots: true },
+    config: {},
     session_config: {},
     intents: [],
     entities: [],
     slots: {},
-    responses: {
-      utter_micol: [Array],
-      utter_greet: [Array],
-      utter_cheer_up: [Array],
-      utter_did_that_help: [Array],
-      utter_happy: [Array],
-      utter_goodbye: [Array],
-      utter_iamabot: [Array],
-    },
-    actions: [""],
+    responses: {},
+    actions: [],
     forms: {},
     e2e_actions: [],
   };
-  version = "2.5.1";
+  version = "";
 
   constructor({ domain, next_action, tracker, sender_id, version }) {
     this.domain = domain;
