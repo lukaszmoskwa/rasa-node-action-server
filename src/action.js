@@ -35,6 +35,10 @@ class RasaAction {
   };
   version = "";
 
+  /**
+   * Constructor of the Rasa Action class
+   * @param {object} param0 Rasa action request
+   */
   constructor({ domain, next_action, tracker, sender_id, version }) {
     this.domain = domain;
     this.next_action = next_action;
@@ -44,14 +48,30 @@ class RasaAction {
     this.version = version;
   }
 
+  /**
+   * Return the slots contained in the Action request
+   */
+  getSlots() {
+    return this.tracker.slots;
+  }
+
+  /**
+   * Return the sender contained in the Action request
+   */
   getSender() {
     return this.sender_id;
   }
 
+  /**
+   * Return the domain contained in the Action request
+   */
   getDomain() {
     return this.domain;
   }
 
+  /**
+   * Return the metadata contained in the Action request
+   */
   getMetadata() {
     return this.tracker.latest_message.metadata;
   }

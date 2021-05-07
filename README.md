@@ -144,49 +144,69 @@ response:
 [{"recipient_id":"lykos94","text":"Hello world, from your action server"}]
 ```
 
-## Methods
+## Methods Reference
 
-#### **RasaNodeActionServer**:
+### RasaNodeActionServer
+#### Constructor
 
-- **new RasaNodeActionServer(port, host)**
-  Function to create a new instance of the action server
+| Parameter | Type     | Description                                                  | Default     |
+| :-------- | :------- | :----------------------------------------------------------- | :---------- |
+| `port`    | `number` | **Optional**.The port on which the Action Server will start  | 5055        |
+| `port`    | `string` | **Optional**. The host on which the Action Server will start | "localhost" |
 
-  - port (optional): integer -> The port on which the Action Server will start - _default: 5055_
-  - host (optional): string -> The host on which the Action Server will start - _default: localhost_
+#### define(action_name, action_function)
 
-- **.define(action_name, action_function)**
-  Function to define a new action inside the action server
+| Parameter         | Type       | Description                                                                                     | Default |
+| :---------------- | :--------- | :---------------------------------------------------------------------------------------------- | :------ |
+| `action_name`     | `string`   | **Required**. The name of the action to trigger                                                 | none    |
+| `action_function` | `function` | **Required**. The function to trigger. This function received 2 parameters: action and response | none    |
 
-  - action_name (required): string -> The name of the action to trigger
-  - action_function (required): function -> The function to trigger. This function is called with 2 parameters:
-    - action: RasaAction -> The action request received and parsed from Rasa
-    - res: RasaActionResponse -> The action response that needs to be send back
+#### start()
 
-- **.start()**
+Function that registers all the action handlers and run the action server
 
-  Function that registers all the action handlers and run the action server
+### RasaAction
 
-#### **RasaAction**:
+#### getSender()
 
-- **.getSender()**
-  Function to retrieve the sender of the action request
+Function to retrieve the sender of the action request
 
-- **.getMetadata()**
-  Function to retrieve the metadata of the action request
+#### getMetadata()
 
-- **.getDomain()**
-  Function to retrieve the domain of the action request
+Function to retrieve the metadata of the action request
 
-#### **RasaActionResponse**:
+#### getDomain()
 
-- **.addEvent()**
-  Function to add an event to the response. Current supported events are:
+Function to retrieve the domain of the action request
 
-  - slot `.addEvent("slot")(name, value)`
-  - bot `.addEvent("bot")(text, data)`
 
-- **.send()**
-  Function to send the response back to the Rasa server
+### RasaActionResponse
+
+#### addEvent(event)
+
+| Parameter | Type              | Description                                                            | Default |
+| :-------- | :---------------- | :--------------------------------------------------------------------- | :------ |
+| `event`   | `RasaActionEvent` | **Required**. A RasaActionEvent with the event type called as function | none    |
+
+```js
+// example
+res.addEvent(RasaActionEvent.bot("Hello from bot"))
+```
+
+#### addResponse(response)
+
+| Parameter  | Type     | Description                                   | Default |
+| :--------- | :------- | :-------------------------------------------- | :------ |
+| `response` | `object` | **Required**. The object to add to a response | none    |
+
+```js
+// example
+res.addResponse({ test:"Text of the response" })
+```
+
+#### getDomain()
+
+Function to send the response back to the Rasa server
 
 ## Maintainers
 
