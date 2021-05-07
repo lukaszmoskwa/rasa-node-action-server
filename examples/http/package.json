@@ -9,5 +9,8 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "dependencies": {}
+  "dependencies": {
+    "axios": "^0.21.1",
+    "rasa-node-action-server": "^0.2.0"
+  }
 }

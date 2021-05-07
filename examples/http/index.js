@@ -1,4 +1,7 @@
-const { RasaNodeActionServer, RasaActionEvent } = require("../../index");
+const {
+  RasaNodeActionServer,
+  RasaActionEvent,
+} = require("rasa-node-action-server");
 const axios = require("axios");
 
 const rnas = new RasaNodeActionServer();

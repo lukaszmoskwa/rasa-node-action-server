@@ -22,13 +22,14 @@ To start a simple Action Server you can use the following quick start example.
 
 ```js
 // index.js
-const { RasaNodeActionServer } = require("./rasa-node-action-server");
+const { RasaNodeActionServer, RasaActionEvent } = require("./rasa-node-action-server");
 
 const rnas = new RasaNodeActionServer();
 
 rnas.define("action_hello_world", (action, res) => {
-  res.addEvent("bot")("Hello world, from your action server");
-  res.send();
+  res
+    .addEvent(RasaActionEvent.bot("Hello world, from your action server"))
+    .send();
 });
 
 rnas.start();
@@ -40,7 +41,7 @@ and run
 node index.js
 ```
 
-The `RasaNodeActionServer` by default will start an express server on `localhost:5055`.
+The `RasaNodeActionServer` by default will start an express server on `localhost:5055`. For more examples, [check out](https://github.com/Lykos94/rasa-node-action-server/tree/master/examples) the `examples` folder on Github.
 
 ## Rasa Custom Connectors
 
